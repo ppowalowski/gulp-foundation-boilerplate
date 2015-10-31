@@ -82,14 +82,16 @@ gulp.task('init',['wiredep'], function () {
 
 gulp.task('copy', function () {
   return gulp
-    .src(['.*','*.*','fonts/**','**/*.html','!**/*.scss','!bower_components/**','!images/**', '!scss/**'],
-    {cwd: 'app/' })
+    .src(['.*','*.*','fonts/**','**/*.html','!**/*.scss','!bower_components/**','!images/**', '!scss/**'],{
+		cwd: 'app/',
+		base:'app'
+	})
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('clean:full', function () {
   return del([
-    'dist/*'
+    'dist/*','dist/.*'
   ]);
 });
 
