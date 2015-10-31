@@ -1,0 +1,28 @@
+{
+  "name": "gulp-foundation-boilerplate",
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "*",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-cache": "*",
+    "gulp-rename": "*",
+    "gulp-imagemin": "*",
+    "gulp-minify-css": "*",
+    "gulp-notify": "*",
+    "gulp-plumber": "*",
+    "gulp-rem2px": "*",
+    "gulp-sass": "*",
+    "gulp-size": "*",
+    "gulp-uglify": "*",
+    "gulp-usemin": "*",
+    "gulp-util": "*",
+    "main-bower-files": "*",
+    "opn": "*",
+    "wiredep": "*"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
