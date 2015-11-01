@@ -4,5 +4,6 @@ dist
 .sass-cache
 app/bower_components
 .idea
+app/css/main.css
 *Thumbs.db
 nbproject/

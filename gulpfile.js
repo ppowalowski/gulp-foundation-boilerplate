@@ -24,7 +24,7 @@ gulp.task('styles', function () {
                 errLogToConsole: true,
                 includePaths: ['app/bower_components/foundation/scss']
             }))
-            .pipe(gulp.dest('app/styles'))
+            .pipe(gulp.dest('app/css'))
             .pipe(reload({stream: true}))
             .pipe(notify("Compilation complete."));
     ;
@@ -94,7 +94,7 @@ gulp.task('serve', function () {
             baseDir: 'app'
         },
         debugInfo: false,
-        host: "ppvm01",
+        host: "0.0.0.0",
         open: false
     }, function (err, bs) {
         require('opn')(bs.options.get('urls').get('local'));
@@ -103,10 +103,9 @@ gulp.task('serve', function () {
 });
 
 gulp.task('watch', ['serve'], function () {
-
     // watch for changes
     gulp.watch(['app/*.html'], reload);
-    gulp.watch('app/styles/**/*.scss', ['css']);
+    gulp.watch('app/scss/**/*.scss', ['styles']);
 });
 
 // inject bower components
