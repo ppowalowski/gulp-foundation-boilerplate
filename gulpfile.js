@@ -1,7 +1,6 @@
 'use strict';
 
 var browserSync = require('browser-sync');
-var rem2px = require('gulp-rem2px');
 var reload = browserSync.reload;
 var del = require('del');
 var gulp = require('gulp'),
@@ -42,13 +41,6 @@ gulp.task('images', function () {
         .pipe(reload({stream:true, once:true}))
         .pipe(size());
 });
-
-//gulp.task('css', ['styles'], function () {
-//    gulp.src('app/styles/*.css')
-//            .pipe(rem2px())
-//            .pipe(gulp.dest('app/styles'));
-//});
-
 
 gulp.task('usemin', function () {
     return gulp.src('app/*.html')

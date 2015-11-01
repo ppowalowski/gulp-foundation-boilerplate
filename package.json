@@ -12,7 +12,6 @@
     "gulp-minify-css": "*",
     "gulp-notify": "*",
     "gulp-plumber": "*",
-    "gulp-rem2px": "*",
     "gulp-sass": "*",
     "gulp-size": "*",
     "gulp-uglify": "*",
