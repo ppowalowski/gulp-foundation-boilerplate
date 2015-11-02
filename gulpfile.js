@@ -18,16 +18,20 @@ var gulp = require('gulp'),
         env;
 
 
+function handleError(err) {
+    console.log(err.toString());
+    this.emit('end');
+}
+
 gulp.task('styles', function () {
     return gulp.src('app/scss/**/*.scss')
-            .pipe(sass({
-                errLogToConsole: true,
-                includePaths: ['app/bower_components/foundation/scss']
-            }))
-            .pipe(gulp.dest('app/css'))
-            .pipe(reload({stream: true}))
-            .pipe(notify("Compilation complete."));
-    ;
+        .pipe(sass({
+            errLogToConsole: true,
+            includePaths: ['app/bower_components/foundation/scss','app/bower_components//motion-ui/src']
+        })).on('error',handleError)
+        .pipe(gulp.dest('app/css'))
+        .pipe(reload({stream: true}))
+        .pipe(notify("Compilation complete."));
 });
 
 gulp.task('images', function () {
@@ -42,7 +46,7 @@ gulp.task('images', function () {
         .pipe(size());
 });
 
-gulp.task('usemin', function () {
+gulp.task('usemin',['copy'], function () {
     return gulp.src('app/*.html')
         .pipe(usemin({
             css: [function () { return minifyCss({compatibility: 'ie8'});}],
@@ -105,6 +109,7 @@ gulp.task('serve', function () {
 gulp.task('watch', ['serve'], function () {
     // watch for changes
     gulp.watch(['app/*.html'], reload);
+    gulp.watch(['app/**/*.js'], reload);
     gulp.watch('app/scss/**/*.scss', ['styles']);
 });
 
@@ -122,4 +127,4 @@ gulp.task('default', ['styles'], function () {
     gulp.start('watch');
 });
 
-gulp.task('build',['clean','copy','styles','usemin','images']);
+gulp.task('publish',['clean','copy','styles','usemin','images']);
