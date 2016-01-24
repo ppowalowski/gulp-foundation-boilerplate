@@ -73,7 +73,9 @@ gulp.task('init',['wiredep'], function () {
         if(path.basename == 'foundation')
             path.basename = '_foundation';
     }))
-    .pipe(gulp.dest('app/scss'));
+    .pipe(gulp.dest('app/scss',{
+        mode:"wx"
+    }));
 });
 
 gulp.task('copy', function () {
